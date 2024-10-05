@@ -2,19 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Vehiculo = void 0;
 var Vehiculo = /** @class */ (function () {
-    function Vehiculo(tipoVehiculo, marca, modelo, patente, nroMotor, nroChasis, cilindrada) {
+    function Vehiculo(tipoVehiculo, marca, modelo, patente, nroMotor, nroChasis) {
         this.tipoVehiculo = tipoVehiculo;
         this.marca = marca;
         this.modelo = modelo;
         this.patente = patente;
         this.nroMotor = nroMotor;
         this.nroChasis = nroChasis;
-        if (cilindrada == undefined) {
-            this.cilindrada = 0;
-        }
-        else {
-            this.cilindrada = cilindrada;
-        }
     }
     //aqui los GET
     Vehiculo.prototype.gettipoVehiculo = function () {
@@ -35,9 +29,6 @@ var Vehiculo = /** @class */ (function () {
     Vehiculo.prototype.getnroChasis = function () {
         return this.nroChasis;
     };
-    Vehiculo.prototype.getcilindrada = function () {
-        return this.cilindrada;
-    };
     //Aqui los SET
     Vehiculo.prototype.settipoVehiculo = function (tipoVehiculo) {
         this.tipoVehiculo = tipoVehiculo;
@@ -56,9 +47,6 @@ var Vehiculo = /** @class */ (function () {
     };
     Vehiculo.prototype.setnroChasis = function (nroChasis) {
         this.nroChasis = nroChasis;
-    };
-    Vehiculo.prototype.setcilindrada = function (cilindrada) {
-        this.cilindrada = cilindrada;
     };
     return Vehiculo;
 }());

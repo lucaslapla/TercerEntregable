@@ -5,79 +5,67 @@ export class Vehiculo {
     private patente: string;
     private nroMotor: string;
     private nroChasis: string;
-    private cilindrada: number;
+    
 
-    constructor(tipoVehiculo : string , marca: string, modelo:string, patente: string , nroMotor: string, nroChasis: string, cilindrada?:number) {
+    constructor(tipoVehiculo : string , marca: string, modelo:string, patente: string , nroMotor: string, nroChasis: string) {
         this.tipoVehiculo = tipoVehiculo;
         this.marca = marca;
         this.modelo = modelo;
         this.patente= patente;
         this.nroMotor = nroMotor;        
         this.nroChasis = nroChasis;
-        if (cilindrada==undefined){
-            this.cilindrada=0;
-        }else{  this.cilindrada = cilindrada;
-        }
     }
 
     //aqui los GET
-    gettipoVehiculo(): string {
+    public gettipoVehiculo(): string {
         return this.tipoVehiculo;
     }
     
-    getmarca(): string {
+    public getmarca(): string {
         return this.marca;
     }
 
-    getmodelo(): string {
+    public getmodelo(): string {
         return this.modelo;
     }
 
-    getpatente(): string {
+    public getpatente(): string {
         return this.patente;
     }
 
-    getnroMotor(): string {
+    public getnroMotor(): string {
         return this.nroMotor;
     }
 
-    getnroChasis(): string {
+    public getnroChasis(): string {
         return this.nroChasis;
     }    
 
-    getcilindrada(): number {
-        return this.cilindrada;
-    }
 
     //Aqui los SET
-
-    settipoVehiculo(tipoVehiculo:string): void {
+    public settipoVehiculo(tipoVehiculo:string): void {
         this.tipoVehiculo=tipoVehiculo;
     }
     
-    setmarca(marca:string): void {
+    public setmarca(marca:string): void {
         this.marca=marca;
     }
 
-    setmodelo(modelo:string): void {
+    public setmodelo(modelo:string): void {
         this.modelo=modelo;
     }
 
-    setpatente(patente:string): void {
+    public setpatente(patente:string): void {
         this.patente=patente;
     }
 
-    setnroMotor(nroMotor:string): void {
+    public setnroMotor(nroMotor:string): void {
         this.nroMotor=nroMotor;
     }
 
-    setnroChasis(nroChasis:string): void {
+    public setnroChasis(nroChasis:string): void {
         this.nroChasis=nroChasis;
     }    
-
-    setcilindrada(cilindrada:number): void {
-        this.cilindrada=cilindrada;
-    }
 
 }
 
