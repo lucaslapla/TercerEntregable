@@ -47,7 +47,7 @@ var RegistroAutomotor = /** @class */ (function () {
         console.log("La siguiente Moto solo podra modificar el Motor");
         console.log(vehiculoAModificar);
         var nuevoMotor = rsl.question("Ingrese nuevo numero de motor :");
-        var nuevaCilindrada = rsl.questionInt("Ingrese la Cilindrada :");
+        var nuevaCilindrada = rsl.question("Ingrese la Cilindrada :");
         vehiculoAModificar.setnroMotor(nuevoMotor);
         vehiculoAModificar.setcilindrada(nuevaCilindrada);
         console.log(vehiculoAModificar);

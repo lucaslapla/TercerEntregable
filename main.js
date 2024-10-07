@@ -5,9 +5,24 @@ var AutoyCamionetas_1 = require("./AutoyCamionetas");
 var Motos_1 = require("./Motos");
 var rsl = require("readline-sync");
 function menuverLista(registrarVehiculo) {
-    //Ver lista de Vehiculos
-    console.log(registrarVehiculo);
-    console.log("=======================Lista Original===============================");
+    var listaVehiculos = registrarVehiculo.getregistrarVehiculo(); //copio los datos del arreglo;
+    console.log("numeros de Vehiculos en la Lista: ", listaVehiculos.length);
+    var _loop_1 = function (i) {
+        setTimeout(function () {
+            var vehiculo = listaVehiculos[i];
+            console.log("Veh\u00EDculo ".concat(i + 1, ":"));
+            console.log("  Tipo: ".concat(vehiculo.gettipoVehiculo()));
+            console.log("  Marca: ".concat(vehiculo.getmarca()));
+            console.log("  Modelo: ".concat(vehiculo.getmodelo()));
+            console.log("  Patente: ".concat(vehiculo.getpatente()));
+            console.log("  Nro Motor: ".concat(vehiculo.getnroMotor()));
+            console.log("  Nro Chasis: ".concat(vehiculo.getnroChasis()));
+        }, 500 * i); // Retraso de 1 segundo multiplicado por el índice
+    };
+    for (var i = 0; i < listaVehiculos.length; i++) {
+        _loop_1(i);
+    }
+    ;
 }
 function menuAgregarVehiculo(registrarVehiculo) {
     //Agrego Vehiculo y lo muestro
@@ -58,7 +73,7 @@ function menuPrincipal(registrarVehiculo) {
         console.log("**  Ingrese 6 si desea modificar motor de la MOTO    **");
         console.log("**  Ingrese 7 si desea eliminar una MOTO             **");
         console.log("*******************************************************");
-        var aux = rsl.question("Seleccione la opcion deseada : ");
+        var aux = parseInt(rsl.question("Seleccione la opcion deseada : "), 10); // parseInnt pasa el String a texto;
         selector = aux;
         if (selector == 1) {
             menuverLista(registrarVehiculo);

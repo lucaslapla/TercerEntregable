@@ -4,53 +4,66 @@ import {Motocicletas} from "./Motos"
 import   * as rsl from "readline-sync"
 import { Vehiculo } from "./Vehiculo"
 
-function menuverLista (registrarVehiculo):void{
-        //Ver lista de Vehiculos
-       console.log(registrarVehiculo);
-    console.log("=======================Lista Original===============================");
+function menuverLista (registrarVehiculo:RegistroAutomotor):void{ //Ver lista de Vehiculos
+    const listaVehiculos=registrarVehiculo.getregistrarVehiculo(); //copio los datos del arreglo;
+    console.log("numeros de Vehiculos en la Lista: " , listaVehiculos.length);
+    
+    for (let i:number = 0; i < listaVehiculos.length ; i++){
+        setTimeout(() => {
+            const vehiculo = listaVehiculos[i];
+            console.log(`Vehículo ${i + 1}:`);
+            console.log(`  Tipo: ${vehiculo.gettipoVehiculo()}`);
+            console.log(`  Marca: ${vehiculo.getmarca()}`);
+            console.log(`  Modelo: ${vehiculo.getmodelo()}`);
+            console.log(`  Patente: ${vehiculo.getpatente()}`);
+            console.log(`  Nro Motor: ${vehiculo.getnroMotor()}`);
+            console.log(`  Nro Chasis: ${vehiculo.getnroChasis()}`);
+          
+        }, 500 * i); // Retraso de 1 segundo multiplicado por el índice
+      };
 }
 
-function menuAgregarVehiculo(registrarVehiculo):void{
+function menuAgregarVehiculo(registrarVehiculo:RegistroAutomotor):void{
         //Agrego Vehiculo y lo muestro
         registrarVehiculo.nuevoVehiculo("Camion","Volvo","Standart","OPL 234","mot75933y924","ch37429j829347",15000);
         console.log(registrarVehiculo);
         console.log("==========================Se Agrega Nuevo Camion En ultimo Lugar ============================");
 }
 
-function menuModificarVehiculo(registrarVehiculo):void{
+function menuModificarVehiculo(registrarVehiculo:RegistroAutomotor):void{
         //Modificar Vehiculo
         registrarVehiculo.modificarVehiculo(vehiculo1);
         console.log("==========================Se Modifico numero de motor del Segundo ============================");
 }
 
-function menuEliminarVehiculo(registrarVehiculo):void{
+function menuEliminarVehiculo(registrarVehiculo:RegistroAutomotor):void{
         //Eliminar Vehiculo y lo muestro
         registrarVehiculo.eliminarVehiculo("OPL 234");//elimino el camnion agegado por metodo
         console.log(registrarVehiculo);
         console.log("==========================Se elimina el Camion ============================");
 }
 
-function menuAgregarMoto(registrarVehiculo):void{ // Agrego una MOTO a la Lista
+function menuAgregarMoto(registrarVehiculo:RegistroAutomotor):void{ // Agrego una MOTO a la Lista
     //Agrego Vehiculo y lo muestro
     registrarVehiculo.agregarMoto("Moto","Bajaj","Rouser","AD 578 JE","mot486i473","ch34829j84847",300);
     console.log(registrarVehiculo);
     console.log("==========================Se Agrega Nuevo Camion En ultimo Lugar ============================");
 }
 
-function menuModificarMoto(registrarVehiculo):void{
+function menuModificarMoto(registrarVehiculo:RegistroAutomotor):void{
     //Modificar Vehiculo
     registrarVehiculo.modificarMoto(vehiculo5);
     console.log("==========================Se Modifico numero de motor de la MOTO ============================");
 }
 
-function menuEliminarMoto(registrarVehiculo):void{
+function menuEliminarMoto(registrarVehiculo:RegistroAutomotor):void{
     //Eliminar Vehiculo y lo muestro
     registrarVehiculo.eliminarMoto("AD 578 JE");//elimino la MOTO agegado por metodo
     console.log(registrarVehiculo);
     console.log("==========================Se elimina MOTO ============================");
 }
 
-function menuPrincipal(registrarVehiculo):void{ // Armo menu para que sea menos engorroso :)
+function menuPrincipal(registrarVehiculo:RegistroAutomotor):void{ // Armo menu para que sea menos engorroso :)
     let selector:number=2;
     while(selector!=0){
         console.log("");
@@ -66,7 +79,7 @@ function menuPrincipal(registrarVehiculo):void{ // Armo menu para que sea menos 
         console.log("**  Ingrese 7 si desea eliminar una MOTO             **");
         console.log("*******************************************************")
         
-        let aux:number = rsl.question("Seleccione la opcion deseada : ");
+        let aux:number = parseInt(rsl.question("Seleccione la opcion deseada : "), 10);// parseInnt pasa el String a texto;
         selector=aux;
         if (selector==1){
             menuverLista(registrarVehiculo);
