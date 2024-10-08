@@ -5,22 +5,11 @@ import   * as rsl from "readline-sync"
 import { Vehiculo } from "./Vehiculo"
 
 function menuverLista (registrarVehiculo:RegistroAutomotor):void{ //Ver lista de Vehiculos
-    const listaVehiculos=registrarVehiculo.getregistrarVehiculo(); //copio los datos del arreglo;
-    console.log("numeros de Vehiculos en la Lista: " , listaVehiculos.length);
-    
-    for (let i:number = 0; i < listaVehiculos.length ; i++){
-        setTimeout(() => {
-            const vehiculo = listaVehiculos[i];
-            console.log(`Vehículo ${i + 1}:`);
-            console.log(`  Tipo: ${vehiculo.gettipoVehiculo()}`);
-            console.log(`  Marca: ${vehiculo.getmarca()}`);
-            console.log(`  Modelo: ${vehiculo.getmodelo()}`);
-            console.log(`  Patente: ${vehiculo.getpatente()}`);
-            console.log(`  Nro Motor: ${vehiculo.getnroMotor()}`);
-            console.log(`  Nro Chasis: ${vehiculo.getnroChasis()}`);
-          
-        }, 500 * i); // Retraso de 1 segundo multiplicado por el índice
-      };
+    const listadoDeVehiculos=registrarVehiculo.getregistrarVehiculo(); //copio los datos del arreglo;
+    console.log("Numeros de Vehiculos en la Lista: " , listadoDeVehiculos.length);
+    for (let i:number = 0; i < listadoDeVehiculos.length ; i++){
+            console.log( listadoDeVehiculos[i]);        
+    };
 }
 
 function menuAgregarVehiculo(registrarVehiculo:RegistroAutomotor):void{
@@ -81,6 +70,7 @@ function menuPrincipal(registrarVehiculo:RegistroAutomotor):void{ // Armo menu p
         
         let aux:number = parseInt(rsl.question("Seleccione la opcion deseada : "), 10);// parseInnt pasa el String a texto;
         selector=aux;
+
         if (selector==1){
             menuverLista(registrarVehiculo);
         }else if (selector==2){

@@ -5,22 +5,10 @@ var AutoyCamionetas_1 = require("./AutoyCamionetas");
 var Motos_1 = require("./Motos");
 var rsl = require("readline-sync");
 function menuverLista(registrarVehiculo) {
-    var listaVehiculos = registrarVehiculo.getregistrarVehiculo(); //copio los datos del arreglo;
-    console.log("numeros de Vehiculos en la Lista: ", listaVehiculos.length);
-    var _loop_1 = function (i) {
-        setTimeout(function () {
-            var vehiculo = listaVehiculos[i];
-            console.log("Veh\u00EDculo ".concat(i + 1, ":"));
-            console.log("  Tipo: ".concat(vehiculo.gettipoVehiculo()));
-            console.log("  Marca: ".concat(vehiculo.getmarca()));
-            console.log("  Modelo: ".concat(vehiculo.getmodelo()));
-            console.log("  Patente: ".concat(vehiculo.getpatente()));
-            console.log("  Nro Motor: ".concat(vehiculo.getnroMotor()));
-            console.log("  Nro Chasis: ".concat(vehiculo.getnroChasis()));
-        }, 500 * i); // Retraso de 1 segundo multiplicado por el índice
-    };
-    for (var i = 0; i < listaVehiculos.length; i++) {
-        _loop_1(i);
+    var listadoDeVehiculos = registrarVehiculo.getregistrarVehiculo(); //copio los datos del arreglo;
+    console.log("Numeros de Vehiculos en la Lista: ", listadoDeVehiculos.length);
+    for (var i = 0; i < listadoDeVehiculos.length; i++) {
+        console.log(listadoDeVehiculos[i]);
     }
     ;
 }
@@ -96,7 +84,7 @@ function menuPrincipal(registrarVehiculo) {
         else if (selector == 7) {
             menuEliminarMoto(registrarVehiculo);
         }
-        else if (selector < 0 || selector > 8) {
+        else if (selector < -1 || selector > 8) {
             console.log("El numero ingresado no esta en el menu, prueve nuevamente");
         }
         else {
